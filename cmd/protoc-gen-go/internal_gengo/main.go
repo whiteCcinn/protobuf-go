@@ -70,42 +70,42 @@ func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.Generated
 	fmt.Fprint(os.Stderr, "1")
 	filename := file.GeneratedFilenamePrefix + ".pb.go"
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
-	f := newFileInfo(file)
+	//f := newFileInfo(file)
 	fmt.Fprint(os.Stderr, "2")
 
-	genStandaloneComments(g, f, int32(genid.FileDescriptorProto_Syntax_field_number))
-	genGeneratedHeader(gen, g, f)
-	genStandaloneComments(g, f, int32(genid.FileDescriptorProto_Package_field_number))
-
-	packageDoc := genPackageKnownComment(f)
-	g.P(packageDoc, "package ", f.GoPackageName)
-	g.P()
-
-	// Emit a static check that enforces a minimum version of the proto package.
-	if GenerateVersionMarkers {
-		g.P("const (")
-		g.P("// Verify that this generated code is sufficiently up-to-date.")
-		g.P("_ = ", protoimplPackage.Ident("EnforceVersion"), "(", protoimpl.GenVersion, " - ", protoimplPackage.Ident("MinVersion"), ")")
-		g.P("// Verify that runtime/protoimpl is sufficiently up-to-date.")
-		g.P("_ = ", protoimplPackage.Ident("EnforceVersion"), "(", protoimplPackage.Ident("MaxVersion"), " - ", protoimpl.GenVersion, ")")
-		g.P(")")
-		g.P()
-	}
-
-	for i, imps := 0, f.Desc.Imports(); i < imps.Len(); i++ {
-		genImport(gen, g, f, imps.Get(i))
-	}
-	for _, enum := range f.allEnums {
-		genEnum(g, f, enum)
-	}
-	for _, message := range f.allMessages {
-		genMessage(g, f, message)
-	}
-	c, _ := g.Content()
-	fmt.Fprintln(os.Stderr, string(c))
-	genExtensions(g, f)
-
-	genReflectFileDescriptor(gen, g, f)
+	//genStandaloneComments(g, f, int32(genid.FileDescriptorProto_Syntax_field_number))
+	//genGeneratedHeader(gen, g, f)
+	//genStandaloneComments(g, f, int32(genid.FileDescriptorProto_Package_field_number))
+	//
+	//packageDoc := genPackageKnownComment(f)
+	//g.P(packageDoc, "package ", f.GoPackageName)
+	//g.P()
+	//
+	//// Emit a static check that enforces a minimum version of the proto package.
+	//if GenerateVersionMarkers {
+	//	g.P("const (")
+	//	g.P("// Verify that this generated code is sufficiently up-to-date.")
+	//	g.P("_ = ", protoimplPackage.Ident("EnforceVersion"), "(", protoimpl.GenVersion, " - ", protoimplPackage.Ident("MinVersion"), ")")
+	//	g.P("// Verify that runtime/protoimpl is sufficiently up-to-date.")
+	//	g.P("_ = ", protoimplPackage.Ident("EnforceVersion"), "(", protoimplPackage.Ident("MaxVersion"), " - ", protoimpl.GenVersion, ")")
+	//	g.P(")")
+	//	g.P()
+	//}
+	//
+	//for i, imps := 0, f.Desc.Imports(); i < imps.Len(); i++ {
+	//	genImport(gen, g, f, imps.Get(i))
+	//}
+	//for _, enum := range f.allEnums {
+	//	genEnum(g, f, enum)
+	//}
+	//for _, message := range f.allMessages {
+	//	genMessage(g, f, message)
+	//}
+	//c, _ := g.Content()
+	//fmt.Fprintln(os.Stderr, string(c))
+	//genExtensions(g, f)
+	//
+	//genReflectFileDescriptor(gen, g, f)
 
 	return g
 }
