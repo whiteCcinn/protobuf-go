@@ -1,4 +1,4 @@
-module google.golang.org/protobuf
+module github.com/whiteCcinn/protobuf-go
 
 go 1.11
 
