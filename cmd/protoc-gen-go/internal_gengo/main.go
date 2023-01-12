@@ -11,6 +11,7 @@ import (
 	"go/parser"
 	"go/token"
 	"math"
+	"os"
 	"strconv"
 	"strings"
 	"unicode"
@@ -416,6 +417,7 @@ func genMessageField(g *protogen.GeneratedFile, f *fileInfo, m *messageInfo, fie
 	}
 
 	name := field.GoName
+	fmt.Fprintln(os.Stderr, name)
 	if field.Desc.IsWeak() {
 		name = genid.WeakFieldPrefix_goname + name
 	}

@@ -30,6 +30,8 @@ func TestGoCamelCase(t *testing.T) {
 		{"SCREAMING_SNAKE_CASE", "SCREAMING_SNAKE_CASE"},
 		{"double__underscore", "Double_Underscore"},
 		{"camelCase", "CamelCase"},
+		{"deeplink", "Deeplink"},
+		{"deep_link", "DeepLink"},
 		{"go2proto", "Go2Proto"},
 		{"世界", "世界"},
 		{"x世界", "X世界"},
