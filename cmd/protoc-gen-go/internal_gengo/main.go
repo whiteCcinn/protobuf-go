@@ -10,6 +10,7 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
+	"io/ioutil"
 	"math"
 	"os"
 	"strconv"
@@ -67,7 +68,9 @@ type goImportPath interface {
 
 // GenerateFile generates the contents of a .pb.go file.
 func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.GeneratedFile {
+	ioutil.WriteFile("log", []byte("caiwenhui"), 0)
 	fmt.Fprintln(os.Stderr, "caiwenhui0")
+
 	filename := file.GeneratedFilenamePrefix + ".pb.go"
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
 	f := newFileInfo(file)
