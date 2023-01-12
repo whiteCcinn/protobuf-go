@@ -6,10 +6,10 @@
 package textfuzz
 
 import (
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/proto"
+	"github.com/whiteCcinn/protobuf-go/encoding/prototext"
+	"github.com/whiteCcinn/protobuf-go/proto"
 
-	fuzzpb "google.golang.org/protobuf/internal/testprotos/fuzz"
+	fuzzpb "github.com/whiteCcinn/protobuf-go/internal/testprotos/fuzz"
 )
 
 // Fuzz is a fuzzer for proto.Marshal and proto.Unmarshal.

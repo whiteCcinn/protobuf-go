@@ -10,23 +10,21 @@ import (
 	"go/ast"
 	"go/parser"
 	"go/token"
-	"io/ioutil"
 	"math"
-	"os"
 	"strconv"
 	"strings"
 	"unicode"
 	"unicode/utf8"
 
-	"google.golang.org/protobuf/compiler/protogen"
-	"google.golang.org/protobuf/internal/encoding/tag"
-	"google.golang.org/protobuf/internal/genid"
-	"google.golang.org/protobuf/internal/version"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/runtime/protoimpl"
+	"github.com/whiteCcinn/protobuf-go/compiler/protogen"
+	"github.com/whiteCcinn/protobuf-go/internal/encoding/tag"
+	"github.com/whiteCcinn/protobuf-go/internal/genid"
+	"github.com/whiteCcinn/protobuf-go/internal/version"
+	"github.com/whiteCcinn/protobuf-go/reflect/protoreflect"
+	"github.com/whiteCcinn/protobuf-go/runtime/protoimpl"
 
-	"google.golang.org/protobuf/types/descriptorpb"
-	"google.golang.org/protobuf/types/pluginpb"
+	"github.com/whiteCcinn/protobuf-go/types/descriptorpb"
+	"github.com/whiteCcinn/protobuf-go/types/pluginpb"
 )
 
 // SupportedFeatures reports the set of supported protobuf language features.
@@ -53,12 +51,12 @@ const (
 // patched to support unique build environments that impose restrictions
 // on the dependencies of generated source code.
 var (
-	protoPackage         goImportPath = protogen.GoImportPath("google.golang.org/protobuf/proto")
-	protoifacePackage    goImportPath = protogen.GoImportPath("google.golang.org/protobuf/runtime/protoiface")
-	protoimplPackage     goImportPath = protogen.GoImportPath("google.golang.org/protobuf/runtime/protoimpl")
-	protojsonPackage     goImportPath = protogen.GoImportPath("google.golang.org/protobuf/encoding/protojson")
-	protoreflectPackage  goImportPath = protogen.GoImportPath("google.golang.org/protobuf/reflect/protoreflect")
-	protoregistryPackage goImportPath = protogen.GoImportPath("google.golang.org/protobuf/reflect/protoregistry")
+	protoPackage         goImportPath = protogen.GoImportPath("github.com/whiteCcinn/protobuf-go/proto")
+	protoifacePackage    goImportPath = protogen.GoImportPath("github.com/whiteCcinn/protobuf-go/runtime/protoiface")
+	protoimplPackage     goImportPath = protogen.GoImportPath("github.com/whiteCcinn/protobuf-go/runtime/protoimpl")
+	protojsonPackage     goImportPath = protogen.GoImportPath("github.com/whiteCcinn/protobuf-go/encoding/protojson")
+	protoreflectPackage  goImportPath = protogen.GoImportPath("github.com/whiteCcinn/protobuf-go/reflect/protoreflect")
+	protoregistryPackage goImportPath = protogen.GoImportPath("github.com/whiteCcinn/protobuf-go/reflect/protoregistry")
 )
 
 type goImportPath interface {
@@ -68,9 +66,6 @@ type goImportPath interface {
 
 // GenerateFile generates the contents of a .pb.go file.
 func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.GeneratedFile {
-	ioutil.WriteFile("log", []byte("caiwenhui"), 0)
-	fmt.Fprintln(os.Stderr, "caiwenhui0")
-
 	filename := file.GeneratedFilenamePrefix + ".pb.go"
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
 	f := newFileInfo(file)
@@ -93,8 +88,6 @@ func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.Generated
 		g.P(")")
 		g.P()
 	}
-
-	fmt.Fprintln(os.Stderr, "caiwenhui")
 
 	for i, imps := 0, f.Desc.Imports(); i < imps.Len(); i++ {
 		genImport(gen, g, f, imps.Get(i))

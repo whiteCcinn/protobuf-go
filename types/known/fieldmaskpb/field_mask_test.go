@@ -9,10 +9,10 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
-	"google.golang.org/protobuf/proto"
+	"github.com/whiteCcinn/protobuf-go/proto"
 
-	testpb "google.golang.org/protobuf/internal/testprotos/test"
-	fmpb "google.golang.org/protobuf/types/known/fieldmaskpb"
+	testpb "github.com/whiteCcinn/protobuf-go/internal/testprotos/test"
+	fmpb "github.com/whiteCcinn/protobuf-go/types/known/fieldmaskpb"
 )
 
 func TestAppend(t *testing.T) {

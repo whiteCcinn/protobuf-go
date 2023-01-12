@@ -5,13 +5,13 @@
 package proto
 
 import (
-	"google.golang.org/protobuf/encoding/protowire"
-	"google.golang.org/protobuf/internal/encoding/messageset"
-	"google.golang.org/protobuf/internal/errors"
-	"google.golang.org/protobuf/internal/flags"
-	"google.golang.org/protobuf/internal/order"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/reflect/protoregistry"
+	"github.com/whiteCcinn/protobuf-go/encoding/protowire"
+	"github.com/whiteCcinn/protobuf-go/internal/encoding/messageset"
+	"github.com/whiteCcinn/protobuf-go/internal/errors"
+	"github.com/whiteCcinn/protobuf-go/internal/flags"
+	"github.com/whiteCcinn/protobuf-go/internal/order"
+	"github.com/whiteCcinn/protobuf-go/reflect/protoreflect"
+	"github.com/whiteCcinn/protobuf-go/reflect/protoregistry"
 )
 
 func (o MarshalOptions) sizeMessageSet(m protoreflect.Message) (size int) {

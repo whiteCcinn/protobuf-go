@@ -12,14 +12,14 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 
-	"google.golang.org/protobuf/encoding/prototext"
-	"google.golang.org/protobuf/internal/impl"
-	"google.golang.org/protobuf/reflect/protodesc"
-	"google.golang.org/protobuf/reflect/protoreflect"
-	"google.golang.org/protobuf/runtime/protoiface"
-	"google.golang.org/protobuf/testing/protocmp"
+	"github.com/whiteCcinn/protobuf-go/encoding/prototext"
+	"github.com/whiteCcinn/protobuf-go/internal/impl"
+	"github.com/whiteCcinn/protobuf-go/reflect/protodesc"
+	"github.com/whiteCcinn/protobuf-go/reflect/protoreflect"
+	"github.com/whiteCcinn/protobuf-go/runtime/protoiface"
+	"github.com/whiteCcinn/protobuf-go/testing/protocmp"
 
-	"google.golang.org/protobuf/types/descriptorpb"
+	"github.com/whiteCcinn/protobuf-go/types/descriptorpb"
 )
 
 type AberrantMessage struct {

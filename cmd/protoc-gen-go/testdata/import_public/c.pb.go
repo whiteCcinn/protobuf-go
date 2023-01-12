@@ -8,9 +8,9 @@
 package import_public
 
 import (
-	sub2 "google.golang.org/protobuf/cmd/protoc-gen-go/testdata/import_public/sub2"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	sub2 "github.com/whiteCcinn/protobuf-go/cmd/protoc-gen-go/testdata/import_public/sub2"
+	protoreflect "github.com/whiteCcinn/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/whiteCcinn/protobuf-go/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 )

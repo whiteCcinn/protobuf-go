@@ -44,8 +44,8 @@
 package wrapperspb
 
 import (
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	protoreflect "github.com/whiteCcinn/protobuf-go/reflect/protoreflect"
+	protoimpl "github.com/whiteCcinn/protobuf-go/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 )
