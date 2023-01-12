@@ -97,6 +97,7 @@ func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.Generated
 		genEnum(g, f, enum)
 	}
 	for _, message := range f.allMessages {
+		fmt.Fprintln(os.Stderr, message.Fields)
 		genMessage(g, f, message)
 	}
 	genExtensions(g, f)
@@ -417,7 +418,6 @@ func genMessageField(g *protogen.GeneratedFile, f *fileInfo, m *messageInfo, fie
 	}
 
 	name := field.GoName
-	fmt.Fprintln(os.Stderr, name)
 	if field.Desc.IsWeak() {
 		name = genid.WeakFieldPrefix_goname + name
 	}
