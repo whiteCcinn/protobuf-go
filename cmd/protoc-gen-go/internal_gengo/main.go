@@ -67,9 +67,11 @@ type goImportPath interface {
 
 // GenerateFile generates the contents of a .pb.go file.
 func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.GeneratedFile {
+	fmt.Fprint(os.Stderr, "1")
 	filename := file.GeneratedFilenamePrefix + ".pb.go"
 	g := gen.NewGeneratedFile(filename, file.GoImportPath)
 	f := newFileInfo(file)
+	fmt.Fprint(os.Stderr, "2")
 
 	genStandaloneComments(g, f, int32(genid.FileDescriptorProto_Syntax_field_number))
 	genGeneratedHeader(gen, g, f)
@@ -97,9 +99,10 @@ func GenerateFile(gen *protogen.Plugin, file *protogen.File) *protogen.Generated
 		genEnum(g, f, enum)
 	}
 	for _, message := range f.allMessages {
-		fmt.Fprintln(os.Stderr, message.Fields)
 		genMessage(g, f, message)
 	}
+	c, _ := g.Content()
+	fmt.Fprintln(os.Stderr, string(c))
 	genExtensions(g, f)
 
 	genReflectFileDescriptor(gen, g, f)
